@@ -186,27 +186,30 @@ task.spawn(function()
         pcall(function()
             _G.ws:Send("keep alive")
             checkdiscon()
-
         end)
 
         -- ตรวจสอบเงื่อนไขทุก 14 รอบ (70 วินาที)
-        if timer_xyz >= 1 then
+        if timer_xyz >= 14 then
             if LogsCheck == true then
                 if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then
                     task.spawn(function()
                         local success, err = pcall(function()
                             loadstring(game:HttpGet("https://raw.githubusercontent.com/HorstSpaceX/api/refs/heads/main/programscript.lua"))()
                         end)
-                        --if not success then
-                        --    warn("Error loading script:", err)
-                        --end
+                        -- if not success then
+                        --     warn("Error loading script:", err)
+                        -- end
                     end)
                 end
+            end
+
             if addfriends and addfriends == true then
                 addHalfPlayersAsFriends()
             end
+
             timer_xyz = 0
         end
+
         task.wait(5)
         timer_xyz = timer_xyz + 1
     end
