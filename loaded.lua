@@ -241,7 +241,7 @@ function encode_inventory_to_json()
         Lever = lever,
         Bounty = bounty,
     }
-    print("Sent data !!")
+    print("Sent data 22222 !!")
     return HttpService:JSONEncode(result)
 end
 
